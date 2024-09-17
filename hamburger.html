@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navigation Responsive</title>
+<style>
+body {
+margin: 0;
+font-family: Arial, sans-serif;
+}
+
+header {
+background-color: #333;
+color: #fff;
+}
+
+.navbar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1rem;
+}
+
+.navbar .logo {
+font-size: 1.5rem;
+}
+
+.nav-menu {
+list-style-type: none;
+margin: 0;
+padding: 0;
+display: flex;
+}
+
+.nav-menu li {
+margin-left: 1rem;
+}
+
+.nav-menu a {
+color: #fff;
+text-decoration: none;
+}
+
+.menu-toggle {
+display: none;
+background: none;
+border: none;
+cursor: pointer;
+flex-direction: column;
+padding: 0;
+}
+
+.menu-toggle .bar {
+width: 25px;
+height: 3px;
+background: #fff;
+margin: 3px 0;
+}
+
+@media (max-width: 768px) {
+.nav-menu {
+display: none;
+flex-direction: column;
+width: 100%;
+position: absolute;
+top: 60px;
+left: 0;
+background-color: #333;
+}
+
+.nav-menu.active {
+display: flex;
+}
+
+.nav-menu li {
+margin: 1rem 0;
+text-align: center;
+}
+
+.menu-toggle {
+display: flex;
+}
+}
+</style>
+</head>
+<body>
+<header>
+<nav class="navbar">
+<div class="logo">MonSite</div>
+<button class="menu-toggle" id="menu-toggle">
+<span class="bar"></span>
+<span class="bar"></span>
+<span class="bar"></span>
+</button>
+<ul class="nav-menu" id="nav-menu">
+<li><a href="#home">Accueil</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#about">À propos</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</header>
+
+
+<script>
+document.getElementById('menu-toggle').addEventListener('click', function() {
+var menu = document.getElementById('nav-menu');
+menu.classList.toggle('active');
+});
+</script>
+</body>
+</html>

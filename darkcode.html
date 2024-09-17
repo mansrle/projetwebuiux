@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mode Sombre</title>
+<style>
+/* styles.css */
+
+/* Mode clair par défaut */
+body {
+background-color: #ffffff;
+color: #000000;
+transition: background-color 0.3s, color 0.3s;
+}
+
+/* Mode sombre */
+body.dark-mode {
+background-color: #121212;
+color: #e0e0e0;
+}
+
+button {
+margin: 10px;
+padding: 10px;
+}
+</style>
+</head>
+<body>
+<button id="toggle-theme">Activer le mode sombre</button>
+<h1>Bienvenue sur ma page</h1>
+<p>Voici un exemple de page avec un mode sombre.</p>
+
+<script>
+// script.js
+
+// Fonction pour basculer le mode sombre
+function toggleDarkMode() {
+document.body.classList.toggle('dark-mode');
+// Mettre à jour le texte du bouton en fonction du mode
+const button = document.getElementById('toggle-theme');
+if (document.body.classList.contains('dark-mode')) {
+button.textContent = 'Désactiver le mode sombre';
+sessionStorage.setItem('dark-mode', 'enabled');
+} else {
+button.textContent = 'Activer le mode sombre';
+sessionStorage.setItem('dark-mode', 'disabled');
+}
+}
+
+// Vérifier la préférence de l'utilisateur lors du chargement
+document.addEventListener('DOMContentLoaded', () => {
+const darkMode = sessionStorage.getItem('dark-mode');
+if (darkMode === 'enabled') {
+document.body.classList.add('dark-mode');
+document.getElementById('toggle-theme').textContent = 'Désactiver le mode sombre';
+} else {
+document.body.classList.remove('dark-mode');
+document.getElementById('toggle-theme').textContent = 'Activer le mode sombre';
+}
+});
+
+// Ajouter un écouteur d'événements pour le bouton
+document.getElementById('toggle-theme').addEventListener('click', toggleDarkMode);
+</script>
+</body>
+</html>

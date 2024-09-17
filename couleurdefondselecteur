@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Changer la Couleur de Fond</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+background-color: #f4f4f4;
+margin: 0;
+transition: background-color 0.3s ease;
+}
+.container {
+text-align: center;
+background-color: white;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+label {
+font-size: 18px;
+margin-right: 10px;
+}
+input[type="color"] {
+border: none;
+padding: 5px;
+cursor: pointer;
+}
+button {
+padding: 10px 20px;
+font-size: 18px;
+cursor: pointer;
+border: none;
+border-radius: 5px;
+background-color: #007bff;
+color: white;
+transition: background-color 0.3s ease;
+}
+button:hover {
+background-color: #0056b3;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>Changer la Couleur de Fond</h1>
+<label for="colorPicker">Choisissez une couleur :</label>
+<input type="color" id="colorPicker">
+<br><br>
+<button id="changeColorBtn">Changer la couleur</button>
+</div>
+
+<script>
+// Récupérer les éléments HTML
+const colorPicker = document.getElementById("colorPicker");
+const changeColorBtn = document.getElementById("changeColorBtn");
+
+// Stocker la couleur de fond d'origine
+const originalColor = document.body.style.backgroundColor || "#f4f4f4";
+
+// Variable pour suivre l'état du changement de couleur
+let isOriginalColor = true;
+
+// Ajouter un événement de clic au bouton
+changeColorBtn.addEventListener("click", function() {
+// Récupérer la couleur sélectionnée
+const selectedColor = colorPicker.value;
+
+// Vérifier l'état actuel
+if (isOriginalColor) {
+// Changer la couleur de fond à la couleur sélectionnée
+document.body.style.backgroundColor = selectedColor;
+} else {
+// Réinitialiser la couleur de fond à la couleur d'origine
+document.body.style.backgroundColor = originalColor;
+}
+
+// Basculer l'état
+isOriginalColor = !isOriginalColor;
+});
+</script>
+
+</body>
+</html>
+
+//Attention à l'indentation du code !!!
